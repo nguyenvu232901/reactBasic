@@ -10,7 +10,22 @@ class MyComponent extends React.Component {
   };
 
   handleOnChangeName = (e) => {
-    this.setState({ name: e.target.value });
+    console.log(
+      e.target.value,
+      "event target: ",
+      e.target,
+      "event object: ",
+      e
+    ); // lấy giá trị của input
+    this.setState({ name: e.target.value }); // cập nhật state với giá trị mới từ input
+  };
+
+  // arrow function () =>
+  handleClickButton = () => {
+    // this.setState({ name: "Vu" });
+    // console.log(this.state.name);
+    // console.log("Hello world");
+    alert("Hello world");
   };
 
   render() {
@@ -20,6 +35,8 @@ class MyComponent extends React.Component {
     */
 
     // let name = "Vu";
+
+    console.log(">>>call render: ", this.state);
 
     return (
       <>
@@ -31,7 +48,9 @@ class MyComponent extends React.Component {
           />
           <p>My name is {this.state.name}.</p>
         </div>
-        <div></div>
+        <div className="second">
+          <button onClick={() => this.handleClickButton()}>Click me</button>
+        </div>
       </>
     );
   }
